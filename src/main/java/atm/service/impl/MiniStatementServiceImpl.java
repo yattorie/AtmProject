@@ -1,11 +1,11 @@
-package atm.service;
+package atm.service.impl;
 
-import atm.interfaces.IMiniStatementService;
+import atm.service.MiniStatementService;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MiniStatementServiceImpl implements IMiniStatementService {
+public class MiniStatementServiceImpl implements MiniStatementService {
     private static MiniStatementServiceImpl instance;
 
     private final List<String> miniStatement = new ArrayList<>();

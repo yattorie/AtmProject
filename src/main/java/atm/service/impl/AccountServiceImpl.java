@@ -1,19 +1,20 @@
-package atm.service;
+package atm.service.impl;
 
-import atm.interfaces.IAccountService;
 import atm.model.Account;
 import atm.model.CardData;
 import atm.repository.AccountRepository;
-import atm.repository.AccountRepositoryImpl;
+import atm.repository.impl.AccountRepositoryImpl;
+import atm.service.AccountService;
+import atm.service.MiniStatementService;
 
 import static atm.util.Messages.*;
 
-public class AccountServiceImpl implements IAccountService {
+public class AccountServiceImpl implements AccountService {
     private static AccountServiceImpl instance;
     private Account account;
     private CardData cardData;
     private final AccountRepository accountRepository = AccountRepositoryImpl.getInstance();
-    private MiniStatementServiceImpl miniStatementService = MiniStatementServiceImpl.getInstance();
+    private MiniStatementService miniStatementService = MiniStatementServiceImpl.getInstance();
 
     private AccountServiceImpl() {}
 

@@ -1,6 +1,6 @@
-package atm.interfaces;
+package atm.service;
 
-public interface IMiniStatementService {
+public interface MiniStatementService {
 
     void viewMiniStatement();
 

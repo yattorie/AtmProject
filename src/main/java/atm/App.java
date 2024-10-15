@@ -1,6 +1,6 @@
 package atm;
 
-import atm.app.ATMApp;
+import atm.api.ATMApp;
 
 public class App
 {

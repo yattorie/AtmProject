@@ -1,6 +1,6 @@
-package atm.interfaces;
+package atm.service;
 
-public interface IAccountService {
+public interface AccountService {
 
     void initializeAccount(String cardNumber, String pinCode);
 

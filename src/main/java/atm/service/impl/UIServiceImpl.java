@@ -1,17 +1,20 @@
-package atm.service;
+package atm.service.impl;
 
-import atm.interfaces.IUIService;
+import atm.service.AccountService;
+import atm.service.DepositService;
+import atm.service.UIService;
+import atm.service.WithdrawService;
+import atm.util.AtmScanner;
 
 import java.math.BigDecimal;
-import java.util.Scanner;
 import static atm.util.Messages.*;
 
-public class UIServiceImpl implements IUIService {
+public class UIServiceImpl implements UIService {
     private static UIServiceImpl instance;
-    private final Scanner scanner = new Scanner(System.in);
-    private AccountServiceImpl accountService = AccountServiceImpl.getInstance();
-    private WithdrawServiceImpl withdrawService = WithdrawServiceImpl.getInstance();
-    private DepositServiceImpl depositService = DepositServiceImpl.getInstance();
+    private final AtmScanner atmScanner = AtmScanner.getInstance();
+    private AccountService accountService = AccountServiceImpl.getInstance();
+    private WithdrawService withdrawService = WithdrawServiceImpl.getInstance();
+    private DepositService depositService = DepositServiceImpl.getInstance();
 
     private UIServiceImpl() {}
 
@@ -35,39 +38,38 @@ public class UIServiceImpl implements IUIService {
     @Override
     public void handleWithdrawal() {
         System.out.print(ENTER_TO_WITHDRAW);
-        if (scanner.hasNextBigDecimal()) {
-            BigDecimal amountToWithdraw = scanner.nextBigDecimal();
+        if (atmScanner.getScanner().hasNextBigDecimal()) {
+            BigDecimal amountToWithdraw = atmScanner.getScanner().nextBigDecimal();
             withdrawService.withdrawAmount(amountToWithdraw);
         } else {
             System.out.println(INVALID_INPUT_NUMBER_POSITIVE);
-            scanner.next();
+            atmScanner.getScanner().next();
         }
     }
 
     @Override
     public void handleDeposit() {
         System.out.print(ENTER_TO_DEPOSIT);
-        if (scanner.hasNextBigDecimal()) {
-            BigDecimal amountToDeposit = scanner.nextBigDecimal();
+        if (atmScanner.getScanner().hasNextBigDecimal()) {
+            BigDecimal amountToDeposit = atmScanner.getScanner().nextBigDecimal();
             depositService.depositAmount(amountToDeposit);
         } else {
             System.out.println(INVALID_INPUT_NUMBER_POSITIVE);
-            scanner.next();
+            atmScanner.getScanner().next();
         }
     }
 
     @Override
     public int getMenuOption() {
         displayMenu();
-        while (!scanner.hasNextInt()) {
+        while (!atmScanner.getScanner().hasNextInt()) {
             System.out.println(INVALID_INPUT_NUMBER);
-            scanner.next();
+            atmScanner.getScanner().next();
         }
-        return scanner.nextInt();
+        return atmScanner.getScanner().nextInt();
     }
 
-    @Override
-    public void displayMenu() {
+    private void displayMenu() {
         System.out.println("1 - " + CHECK_CARD_BALANCE);
         System.out.println("2 - " + WITHDRAW_FUNDS);
         System.out.println("3 - " + DEPOSIT_FUNDS);

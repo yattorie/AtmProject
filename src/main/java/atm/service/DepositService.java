@@ -1,16 +1,12 @@
-package atm.interfaces;
+package atm.service;
 
 import atm.model.Account;
 
 import java.math.BigDecimal;
 
-public interface IDepositService {
+public interface DepositService {
 
     void depositAmount(BigDecimal amount);
-
-    void deposit(BigDecimal amount);
-
-    void updateBalance();
 
     void setAccount(Account account);
 }

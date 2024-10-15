@@ -1,15 +1,17 @@
-package atm.interfaces;
+package atm.service;
+
+import atm.util.AtmScanner;
 
 import java.util.List;
-import java.util.Scanner;
 
-public interface ICardService {
+public interface CardService {
 
     List<String[]> readDataFromFile();
 
-    String getValidPinCode(String cardNumber, Scanner scanner);
+    String getValidPinCode(String cardNumber, AtmScanner atmScanner);
 
     boolean isValidCardNumberFormat(String cardNumber);
 
     boolean cardExists(String cardNumber, List<String[]> dataList);
+
 }

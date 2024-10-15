@@ -1,6 +1,6 @@
-package atm.interfaces;
+package atm.service;
 
-public interface IUIService {
+public interface UIService {
 
     void viewBalance();
 
@@ -11,6 +11,4 @@ public interface IUIService {
     void handleDeposit();
 
     int getMenuOption();
-
-    void displayMenu();
 }

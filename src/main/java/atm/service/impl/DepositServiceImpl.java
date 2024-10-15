@@ -1,17 +1,18 @@
-package atm.service;
+package atm.service.impl;
 
-import atm.interfaces.IAccountService;
-import atm.interfaces.IDepositService;
 import atm.model.Account;
+import atm.service.AccountService;
+import atm.service.DepositService;
+import atm.service.MiniStatementService;
 
 import java.math.BigDecimal;
 
 import static atm.util.Messages.*;
 
-public class DepositServiceImpl implements IDepositService {
+public class DepositServiceImpl implements DepositService {
     private static DepositServiceImpl instance;
-    private MiniStatementServiceImpl miniStatementService = MiniStatementServiceImpl.getInstance();
-    private IAccountService IAccountService = AccountServiceImpl.getInstance();
+    private MiniStatementService miniStatementService = MiniStatementServiceImpl.getInstance();
+    private AccountService accountService = AccountServiceImpl.getInstance();
     private Account account;
 
     private DepositServiceImpl() {
@@ -33,14 +34,13 @@ public class DepositServiceImpl implements IDepositService {
         try {
             deposit(amount);
             System.out.println(amount + SUCCESSFULLY_DEPOSITED);
-            IAccountService.viewBalance();
+            accountService.viewBalance();
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    @Override
-    public void deposit(BigDecimal amount) {
+    private void deposit(BigDecimal amount) {
         if (amount.compareTo(new BigDecimal("1000000")) <= 0) {
             BigDecimal newBalance = account.getAmount().add(amount);
             account.setAmount(newBalance);
@@ -51,9 +51,8 @@ public class DepositServiceImpl implements IDepositService {
         }
     }
 
-    @Override
-    public void updateBalance() {
-        IAccountService.updateBalance();
+    private void updateBalance() {
+        accountService.updateBalance();
     }
 
     @Override

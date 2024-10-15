@@ -5,7 +5,7 @@ public class Messages {
     public static final String ENTER_CARD_NUMBER = "Enter card number: ";
     public static final String INVALID_CARD_NUMBER_FORMAT = "Invalid card number format.";
     public static final String EXITING_THE_SYSTEM = "Exiting the system.";
-    public static final String ENTER_PIN_CODE = "Enter pin code:";
+    public static final String ENTER_PIN_CODE = "Enter pin code: ";
     public static final String INVALID_PIN_CODE = "Invalid pin code. Please try again.";
     public static final String CARD_BLOCKED = "Card is blocked for 24 hours. Exiting the system.";
     public static final String PICK_UP_CARD = "Please pick up your card.";
@@ -20,7 +20,7 @@ public class Messages {
     public static final String CARD_NOT_FOUND = "Card not found.";
     public static final String INVALID_CARD_OR_PIN = "Invalid card number or pin code.";
     public static final String AVAILABLE_BALANCE = "Available balance: ";
-    public static final String MAX_ATTEMPTS = "Maximum attempts reached.";
+    public static final String MAX_ATTEMPTS_REACHED = "Maximum attempts reached.";
     public static final String TRY_AGAIN_LATER = "Card is blocked. Try again later.";
     public static final String PIN_4_DIGITS = "Pin code must be 4 digits";
     public static final String ATTEMPTS_LEFT = "Incorrect PIN. Attempts left: ";
