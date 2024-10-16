@@ -42,7 +42,7 @@ public class ATMApp {
             return;
         }
 
-        String pinCode = cardService.getValidPinCode(cardNumber, atmScanner);
+        String pinCode = cardService.getValidPinCode(cardNumber);
         accountService.initializeAccount(cardNumber, pinCode);
 
         while (true) {

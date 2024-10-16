@@ -36,7 +36,7 @@ public class CardServiceImpl implements CardService {
     }
 
     @Override
-    public String getValidPinCode(String cardNumber, AtmScanner atmScanner) {
+    public String getValidPinCode(String cardNumber) {
         String pinCode = "";
         boolean isValid = false;
         while (!isValid) {
