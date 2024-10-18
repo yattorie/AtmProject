@@ -1,16 +1,14 @@
 package atm.api;
 
+import atm.model.Account;
 import atm.service.AccountService;
 import atm.service.CardService;
 import atm.service.UIService;
 import atm.service.impl.AccountServiceImpl;
 import atm.service.impl.CardServiceImpl;
 import atm.service.impl.UIServiceImpl;
-
-import java.util.List;
 import atm.util.AtmScanner;
-
-
+import java.util.List;
 import static atm.util.Messages.*;
 
 public class ATMApp {
@@ -43,19 +41,19 @@ public class ATMApp {
         }
 
         String pinCode = cardService.getValidPinCode(cardNumber);
-        accountService.initializeAccount(cardNumber, pinCode);
+        Account account = accountService.initializeAccount(cardNumber, pinCode);
 
         while (true) {
             int choice = uiService.getMenuOption();
             switch (choice) {
                 case 1:
-                    uiService.viewBalance();
+                    uiService.viewBalance(account);
                     break;
                 case 2:
-                    uiService.handleWithdrawal();
+                    uiService.handleWithdrawal(account);
                     break;
                 case 3:
-                    uiService.handleDeposit();
+                    uiService.handleDeposit(account);
                     break;
                 case 4:
                     uiService.viewMiniStatement();

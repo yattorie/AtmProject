@@ -6,7 +6,5 @@ import java.math.BigDecimal;
 
 public interface DepositService {
 
-    void depositAmount(BigDecimal amount);
-
-    void setAccount(Account account);
+    void depositAmount(Account account, BigDecimal amount);
 }

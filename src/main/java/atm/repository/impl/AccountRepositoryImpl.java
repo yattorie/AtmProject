@@ -4,7 +4,6 @@ import atm.data.DataManager;
 import atm.model.Account;
 import atm.model.CardData;
 import atm.repository.AccountRepository;
-
 import java.math.BigDecimal;
 import java.util.List;
 

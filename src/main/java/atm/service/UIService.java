@@ -1,14 +1,16 @@
 package atm.service;
 
+import atm.model.Account;
+
 public interface UIService {
 
-    void viewBalance();
+    void viewBalance(Account account);
 
     void viewMiniStatement();
 
-    void handleWithdrawal();
-
-    void handleDeposit();
+    void handleWithdrawal(Account account);
 
     int getMenuOption();
+
+    void handleDeposit(Account account);
 }

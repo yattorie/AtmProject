@@ -1,7 +1,6 @@
 package atm.service.impl;
 
 import atm.service.MiniStatementService;
-
 import java.util.ArrayList;
 import java.util.List;
 

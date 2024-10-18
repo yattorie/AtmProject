@@ -6,11 +6,9 @@ import atm.repository.CardRepository;
 import atm.repository.impl.CardRepositoryImpl;
 import atm.service.CardService;
 import atm.util.AtmScanner;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.regex.Pattern;
-
 import static atm.util.Messages.*;
 
 public class CardServiceImpl implements CardService {
@@ -116,7 +114,7 @@ public class CardServiceImpl implements CardService {
     private void blockCard(CardData cardData) {
         cardData.setBlockTimestamp(LocalDateTime.now().plusHours(BLOCK_DURATION_HOURS));
         CardRepositoryImpl.getInstance().updateCardData(cardData);
-        System.out.println(MAX_ATTEMPTS);
+        System.out.println(MAX_ATTEMPTS_REACHED);
     }
 
     private void resetFailedAttemptsAndUnblock(CardData cardData) {

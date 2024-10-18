@@ -1,12 +1,13 @@
 package atm.service;
 
+import atm.model.Account;
+import atm.model.CardData;
+
 public interface AccountService {
 
-    void initializeAccount(String cardNumber, String pinCode);
+    Account initializeAccount(String cardNumber, String pinCode);
 
-    void viewBalance();
+    void viewBalance(Account account);
 
-    void viewMiniStatement();
-
-    void updateBalance();
+    void updateBalance(Account account, CardData cardData);
 }
