@@ -1,8 +1,7 @@
 package atm.service.impl;
 
 import atm.model.Account;
-import atm.service.MiniStatementService;
-import atm.service.UIService;
+import atm.service.*;
 import atm.util.AtmScanner;
 import java.math.BigDecimal;
 import static atm.util.Messages.*;
@@ -10,9 +9,9 @@ import static atm.util.Messages.*;
 public class UIServiceImpl implements UIService {
     private static UIServiceImpl instance;
     private final AtmScanner atmScanner = AtmScanner.getInstance();
-    private final AccountServiceImpl accountService = AccountServiceImpl.getInstance();
-    private final WithdrawServiceImpl withdrawService = WithdrawServiceImpl.getInstance();
-    private final DepositServiceImpl depositService = DepositServiceImpl.getInstance();
+    private final AccountService accountService = AccountServiceImpl.getInstance();
+    private final WithdrawService withdrawService = WithdrawServiceImpl.getInstance();
+    private final DepositService depositService = DepositServiceImpl.getInstance();
     private final MiniStatementService miniStatementService = MiniStatementServiceImpl.getInstance();
 
     private UIServiceImpl() {}
